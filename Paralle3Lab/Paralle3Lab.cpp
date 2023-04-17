@@ -4,7 +4,7 @@
 Алгоритм выполняется пока значение переменной error не станет меньше заданного.
 */
 
-#include "/opt/nvidia/hpc_sdk/Linux_x86_64/21.11/math_libs/11.5/targets/x86_64-linux/include/cublas_v2.h"
+#include "/opt/nvidia/hpc_sdk/Linux_x86_64/22.11/math_libs/11.8/targets/x86_64-linux/include/cublas_v2.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
