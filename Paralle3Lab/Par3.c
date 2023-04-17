@@ -108,7 +108,7 @@ int main(int argc, char** argv) {
             //Отслеживаем прогресс вычислений
             if (iteration % 100 == 0 || iteration == 1)
 #pragma acc wait(1)
-                printf("%d %e\size", iteration, error);
+                printf("%d %e\n", iteration, error);
 
         }
     }
