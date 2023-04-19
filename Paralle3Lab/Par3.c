@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     const double alpha = -1;
     double step1 = 10.0 / (size - 1);
     double* A = (double*)calloc(size*size, sizeof(double));
-    double* up = (double*)calloc(size*size, sizeof(double));
+    double* Anew = (double*)calloc(size*size, sizeof(double));
     double x1 = 10.0;
     double x2 = 20.0;
     double y1 = 20.0;
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     {
     while (itter < iter_max && error > tol) {
         itter++;
-        if (itter % 100 == 0  itter == 1) {
+        if (itter % 100 == 0 || itter == 1) {
             //Снова создаем копии массивов
 #pragma acc data present(A[0:size*size], Anew[0:size*size])
 #pragma acc kernels async(1)
@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
         A = Anew;
         Anew = buf;
 
-        if (itter % 100 == 0  itter == 1)
+        if (itter % 100 == 0 || itter == 1)
 #pragma acc wait(1)
             printf("%d %e\n", itter, error);
         //Отслеживаем прогресс вычислений
